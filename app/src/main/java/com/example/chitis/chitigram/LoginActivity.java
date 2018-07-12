@@ -16,6 +16,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText usernameInput;
     private EditText passwordInput;
     private Button loginBtn;
+    private Button SignupBtn;
 
 
 
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         usernameInput = findViewById(R.id.tlUsername);
         passwordInput = findViewById(R.id.tlPassword);
         loginBtn = findViewById(R.id.btLogin);
+        SignupBtn = findViewById(R.id.btSignUp);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
 
@@ -36,6 +38,15 @@ public class LoginActivity extends AppCompatActivity {
                 final String username = usernameInput.getText().toString();
                 final String password = passwordInput.getText().toString();
                 login(username, password);
+            }
+        });
+
+        SignupBtn.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                final Intent j = new Intent(LoginActivity.this, SignupActivity.class);
+                startActivity(j);
             }
         });
 
