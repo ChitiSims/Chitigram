@@ -40,6 +40,7 @@ public class HomeActivity extends AppCompatActivity {
     File photoFile;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         refreshButton = findViewById(R.id.btRefresh);
         photoButton = findViewById(R.id.btphoto);
         picture = findViewById(R.id.ivPicture);
+
 
 
         createButton.setOnClickListener(new View.OnClickListener() {
