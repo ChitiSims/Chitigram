@@ -13,7 +13,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="218dp"
-        android:background="@color/igRedVelvet"
+        android:background="@android:color/darker_gray"
         android:text="logout" />
 
     <ImageView
@@ -23,5 +23,5 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="17dp"
-        />
+        android:background="@drawable/ic_user_icon" />
 </RelativeLayout>

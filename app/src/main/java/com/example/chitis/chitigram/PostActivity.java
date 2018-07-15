@@ -105,23 +105,6 @@ public class PostActivity extends AppCompatActivity {
         getPosts();
         // Specify which class to query
 
-
-
-// Specify the object id
-//        query.findInBackground(new FindCallback<Post>() {
-//            public void done(List<Post> itemList, ParseException e) {
-//                if (e == null) {
-//                    // Access the array of results here
-//                    String firstItemId = itemList.get(0).getObjectId();
-//                    posts = (ArrayList<Post>) itemList;
-//                    e
-//
-//                    Toast.makeText(PostActivity.this, firstItemId, Toast.LENGTH_SHORT).show();
-//                } else {
-//                    Log.d("item", "Error: " + e.getMessage());
-//                }
-//            }
-//        });
     }
 
     public void getPosts(){

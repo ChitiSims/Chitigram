@@ -173,7 +173,10 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+    public void take_pic(View view) {
+        dispatchTakePictureIntent();
     }
+}
 
 
 

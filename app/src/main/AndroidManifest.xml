@@ -47,7 +47,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".PostActivity" />
         <activity android:name=".SignupActivity" />
-        <activity android:name=".Logout"></activity>
+        <activity android:name=".Logout" />
+        <activity
+            android:name=".landingActivity"
+            android:label="@string/title_activity_landing" />
+        <activity android:name=".Post_Details"></activity>
     </application>
 
 </manifest>

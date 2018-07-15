@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Post_Details">
+
+    <ImageView
+        android:id="@+id/ivpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="27dp"
+        app:srcCompat="@drawable/ic_user_icon" />
+
+    <TextView
+        android:id="@+id/tvUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ivpic"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="79dp"
+        android:text="TextView" />
+
+    <ImageView
+        android:id="@+id/ivPost"
+        android:layout_width="700dp"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/ivpic"
+        android:layout_marginStart="-31dp"
+        android:layout_marginTop="73dp"
+        app:srcCompat="@drawable/gradient_3" />
+
+    <ImageView
+        android:id="@+id/iv_heart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivPost"
+        app:srcCompat="@drawable/ic_heart" />
+
+    <ImageView
+        android:id="@+id/iv_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvDescription"
+        android:layout_below="@id/ivPost"
+        android:layout_toRightOf="@id/iv_heart"
+        app:srcCompat="@drawable/ic_comment" />
+
+    <ImageView
+        android:id="@+id/iv_dm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivPost"
+        android:layout_toRightOf="@id/iv_comment"
+        app:srcCompat="@drawable/ic_dm" />
+
+    <ImageView
+        android:id="@+id/iv_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivPost"
+        android:layout_alignParentRight="true"
+        app:srcCompat="@drawable/ic_save" />
+
+    <ImageView
+        android:id="@+id/ivProfilePic2"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_above="@id/ivPost"
+        app:srcCompat="@drawable/ic_user_tab_empty" />
+
+    <TextView
+        android:id="@+id/tvDes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/iv_heart"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/iv_heart"
+        android:layout_toEndOf="@+id/iv_dm"
+        android:text="TextView" />
+
+
+</RelativeLayout>

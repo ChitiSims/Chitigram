@@ -23,6 +23,8 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+
+
         newUser = findViewById(R.id.etNewUser);
         newPass = findViewById(R.id.etNewPass);
         newEmail= findViewById(R.id.etNewEmail);
@@ -44,7 +46,7 @@ public class SignupActivity extends AppCompatActivity {
                     public void done(ParseException e) {
                         if (e == null) {
                             // Hooray! Let them use the app now.
-                            final Intent intent = new Intent(SignupActivity.this, PostActivity.class);
+                            final Intent intent = new Intent(SignupActivity.this, landingActivity.class);
                             startActivity(intent);
                             finish();
                         } else {

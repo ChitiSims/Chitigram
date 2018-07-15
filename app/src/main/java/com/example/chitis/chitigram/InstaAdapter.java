@@ -1,6 +1,8 @@
 package com.example.chitis.chitigram;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +13,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.chitis.chitigram.model.Post;
+import com.example.chitis.chitigram.model.TimeFormatter;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -62,6 +67,7 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         // populate the views according to this data
         holder.tvUsername.setText(post.getUser().getString("username"));
         holder.tvDescription.setText(post.getDescription());
+        holder.time.setText(TimeFormatter.getTimeDifference(post.getCreatedAt().toString()));
 
 
         Glide.with(context).load(post.getImage().getUrl()).into(holder.ivPost);
@@ -77,14 +83,25 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
 //        });
 
 
-//        holder.reply.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v) {
-//                Intent i = new Intent(context, ReplyActivity.class);
-//                i.putExtra("username", Parcels.wrap(tweet));
-//                ((Activity) context).startActivityForResult(i, REQUEST_CODE);
-//                Toast.makeText(context, tweet.user.name, Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        holder.ivPost.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(context, Post_Details.class);
+                i.putExtra("post", Parcels.wrap(post));
+                //i.putExtra("post", post);
+                ((Activity) context).startActivityForResult(i, REQUEST_CODE);
+                //Toast.makeText(context, tweet.user.name, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        holder.tvUsername.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(context, landingActivity.class);
+                i.putExtra("post", Parcels.wrap(post));
+                //i.putExtra("post", post);
+                ((Activity) context).startActivityForResult(i, REQUEST_CODE);
+                //Toast.makeText(context, tweet.user.name, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -99,6 +116,7 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
         public ImageView ivPost;
         public TextView tvUsername;
         public TextView tvDescription;
+        public TextView time;
         //public ImageButton reply;
 
         public ViewHolder(View itemView) {
@@ -109,11 +127,15 @@ public class InstaAdapter extends RecyclerView.Adapter<InstaAdapter.ViewHolder> 
             ivPost = (ImageView) itemView.findViewById(R.id.ivPost);
             tvUsername = (TextView) itemView.findViewById(R.id.tvUserName);
             tvDescription = (TextView) itemView.findViewById(R.id.tvDescription);
+            time = (TextView) itemView.findViewById(R.id.tvCreation);
         }
 
 
 
+
     }
+
+
 
 
 }

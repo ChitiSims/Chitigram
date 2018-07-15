@@ -1,12 +1,14 @@
 package com.example.chitis.chitigram;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -17,6 +19,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText passwordInput;
     private Button loginBtn;
     private Button SignupBtn;
+    private RelativeLayout rl;
+    AnimationDrawable animationDrawable;
+
 
 
 
@@ -24,6 +29,13 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        rl = findViewById(R.id.rlLogin);
+
+        animationDrawable =(AnimationDrawable)rl.getBackground();
+        animationDrawable.setEnterFadeDuration(5000);
+        animationDrawable.setExitFadeDuration(2000);
+        // onResume
+        animationDrawable.start();
 
 
         usernameInput = findViewById(R.id.tlUsername);
@@ -53,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
         ParseUser currentUser = ParseUser.getCurrentUser();
         if (currentUser != null) {
             // do stuff with the user
-            final Intent intent = new Intent(LoginActivity.this, PostActivity.class);
+            final Intent intent = new Intent(LoginActivity.this, landingActivity.class);
             startActivity(intent);
             finish();
 
@@ -63,6 +75,22 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (animationDrawable != null && !animationDrawable.isRunning())
+            animationDrawable.start();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if (animationDrawable != null && animationDrawable.isRunning())
+            animationDrawable.stop();
+    }
+
+
+
     private void login(String username, String password) {
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             @Override
@@ -70,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (e == null) {
                     Log.d("LoginActivity", "Login successful");
 
-                    final Intent intent = new Intent(LoginActivity.this, PostActivity.class);
+                    final Intent intent = new Intent(LoginActivity.this, landingActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
